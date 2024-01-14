@@ -39,9 +39,14 @@ puts "Course seeding completed"
 # Seed some enrollments
 
 
-   Enrollment.create(student: Student.find_by(id: 1), course: Course.find_by(id: 1))
-   Enrollment.create(student: Student.find_by(id: 1), course: Course.find_by(id: 2))
-
+    Enrollment.create(student: Student.find_by(id: 1), course: Course.find_by(id: 1))
+    Enrollment.create(student: Student.find_by(id: 2), course: Course.find_by(id: 2))
+    Enrollment.create(student: Student.find_by(id: 3), course: Course.find_by(id: 1))
+    Enrollment.create(student: Student.find_by(id: 4), course: Course.find_by(id: 2))
+    Enrollment.create(student: Student.find_by(id: 1), course: Course.find_by(id: 3))
+    Enrollment.create(student: Student.find_by(id: 1), course: Course.find_by(id: 5))
+    Enrollment.create(student: Student.find_by(id: 1), course: Course.find_by(id: 6))
+    Enrollment.create(student: Student.find_by(id: 1), course: Course.find_by(id: 9))
 
 
 

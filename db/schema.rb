@@ -10,12 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_01_14_031141) do
+ActiveRecord::Schema[7.1].define(version: 2024_01_15_072736) do
   create_table "courses", force: :cascade do |t|
     t.string "name"
     t.integer "level"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "teacher_id", null: false
+    t.index ["teacher_id"], name: "index_courses_on_teacher_id", unique: true
   end
 
   create_table "enrollments", force: :cascade do |t|
@@ -35,6 +37,20 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_14_031141) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "students_teachers", id: false, force: :cascade do |t|
+    t.integer "student_id", null: false
+    t.integer "teacher_id", null: false
+    t.index ["student_id", "teacher_id"], name: "index_students_teachers_on_student_id_and_teacher_id", unique: true
+  end
+
+  create_table "teachers", force: :cascade do |t|
+    t.string "name"
+    t.boolean "is_senior"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_foreign_key "courses", "teachers"
   add_foreign_key "enrollments", "courses"
   add_foreign_key "enrollments", "students"
 end

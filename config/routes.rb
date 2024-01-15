@@ -9,4 +9,6 @@ Rails.application.routes.draw do
   # root "posts#index"
   resources :students
   resources :enrollments
+  resources :courses
+  resources :students_teachers
 end

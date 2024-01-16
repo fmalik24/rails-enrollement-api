@@ -1,6 +1,7 @@
 class StudentSerializer < ActiveModel::Serializer
-  attributes :name, :year
+  attributes :id, :name, :year
   has_many :teachers
+  has_many :courses
 end
 
 def year

@@ -7,8 +7,9 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
-  resources :students
+  resources :students do
+    resources :teachers, only: [:index, :create, :destroy], controller: "students_teachers"
+  end
   resources :enrollments
   resources :courses
-  resources :students_teachers
 end

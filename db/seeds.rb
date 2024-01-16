@@ -18,12 +18,12 @@ Teacher.destroy_all
  teacher1 = Teacher.create(name: 'Mr. Smith', is_senior: true)
  student1 = Student.create(name: 'Alice', age: 22)
  student1.teachers << teacher1
+
+teacher2 = Teacher.create(name: 'Ms. Johnson', is_senior: false)
 #
-# teacher2 = Teacher.create(name: 'Ms. Johnson', is_senior: false)
-# #
-# student2 = Student.create(name: 'Bob', age: 33)
-# student2.teachers << teacher1
-# student2.teachers << teacher2
+student2 = Student.create(name: 'Bob', age: 33)
+student2.teachers << teacher1
+student2.teachers << teacher2
 
 100.times do
   Student.create(
